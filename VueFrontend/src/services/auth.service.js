@@ -9,9 +9,8 @@ class AuthService {
             .post(API_URL + 'token', {Username: user.username, Password: user.password})
             .then(response => {
                 if (response.data) {
-                    localStorage.setItem('user', JSON.stringify(response.data));
-                }              
-                user.access_token = response.data;      
+                    localStorage.setItem('user', JSON.stringify({ Username: user.username, Password: user.password, access_token: response.data}));
+                }  
                 return response.data;
             });
     }

@@ -18,6 +18,13 @@
                 <td>{{ student.index }}</td>
                 <td>{{ student.firstName }} {{ student.lastName }}</td>
                 <td>{{ student.year }}</td>
+                <td class="text-right">
+                    <button v-confirm="{
+                        loader: true,
+                        ok: dialog => deleteStudentFromCourse(dialog, student.studentID),
+                        cancel: null,
+                        message: 'Are you sure ?'}" class="btn btn-danger btn-sm">Delete</button>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -45,6 +52,14 @@
                 }, (response) => {
                 });
             },
+            deleteStudentFromCourse(dialog, student_id){
+                let user = JSON.parse(localStorage.getItem('user'));
+                let course_id = this.course.courseID;
+                UserService.deleteStudentFromCourse(user, this.course.courseID, student_id).then((response) => {
+                    location.reload();
+                }, (response) => {
+                });
+            }
         }
     }
 </script>

@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Api.Data;
 using Api.Models;
 using Microsoft.AspNetCore.Cors;
-using System.IO;
 
 namespace Api.Controllers
 {
     [EnableCors("Cors")]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CoursesController : ControllerBase
     {
@@ -80,6 +77,15 @@ namespace Api.Controllers
             }
 
             return NoContent();
+        }
+
+        // POST: api/courses/RemoveStudentFromCourse
+        [HttpPost]
+        public IActionResult RemoveStudentFromCourse(int student_id, int course_id)
+        {
+            _context.Database.ExecuteSqlRaw("Delete from CourseStudent WHERE CoursesCourseID =" + course_id + " AND StudentsStudentID = " + student_id);
+
+            return Ok() ;
         }
 
         // POST: api/Courses
