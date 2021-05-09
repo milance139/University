@@ -27,13 +27,16 @@ class UserService {
         return axios.get(API_URL + 'status', { headers: { Authorization: "Bearer " + user.access_token }});
     }
 
-
     getStudent(user, id) {
         return axios.get(API_URL + 'students/'+id, { headers: { Authorization: "Bearer " + user.access_token }});
     }
 
     getCourse(user, id) {
         return axios.get(API_URL + 'courses/'+id, { headers: { Authorization: "Bearer " + user.access_token }});
+    }
+
+    deleteCourse(user, id) {
+        return axios.delete(API_URL + 'courses/'+id, { headers: { Authorization: "Bearer " + user.access_token}});
     }
 
     deleteStudent(user, id) {
