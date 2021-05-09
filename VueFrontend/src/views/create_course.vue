@@ -58,7 +58,7 @@
                     });
                 }, (response) => {
                     this.notifications.push({
-                        type: 'error',
+                        type: 'danger',
                         message: 'Course not created'
                     });
                 });

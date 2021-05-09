@@ -93,7 +93,7 @@
                         });
                     }, (response) => {
                         this.notifications.push({
-                            type: 'error',
+                            type: 'danger',
                             message: 'Student not created'
                         });
                     });
@@ -105,7 +105,7 @@
                         });
                     }, (response) => {
                         this.notifications.push({
-                            type: 'error',
+                            type: 'danger',
                             message: 'Student not updated'
                         });
                     });
