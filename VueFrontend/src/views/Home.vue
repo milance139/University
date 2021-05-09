@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div id="all-students">
     <h1>All Students</h1>
 

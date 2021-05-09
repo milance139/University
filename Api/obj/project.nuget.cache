@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rj3usm0LuKtxK+pHbpVGVUfXI0uVKWt2j/s61mfty8kGjO15IXeXMnRZCsXOmNJSQj2VWJ08NhDgACi9YQrApQ==",
+  "dgSpecHash": "pS8/z0MHRh03hhSS4XmXroeD8ghyjTUYfJiaGTk4a9PC9skzBZL3m/QCrmAdzIRsqg/5S67mKyne84fOtBRpKw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cener\\Desktop\\University\\Api\\Api.csproj",
+  "projectFilePath": "C:\\Projects\\ASP. NET projects\\University\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cener\\.nuget\\packages\\antlr\\3.4.1.9004\\antlr.3.4.1.9004.nupkg.sha512",
     "C:\\Users\\cener\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

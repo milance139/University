@@ -4,6 +4,10 @@
 
         <p><router-link :to="{ name: 'create_course' }" class="btn btn-primary">Create Course</router-link></p>
 
+        <div class="form-group">
+          <input type="text" name="search" v-model="courseSearch" placeholder="Search courses" class="form-control" v-on:keyup="searchCourses">
+        </div>
+
         <table class="table table-hover">
             <thead>
             <tr>
@@ -32,11 +36,13 @@
         data(){
             return{
                 courses: [],
+                courseSearch: '',
+                originalCourses: []
             }
         },
         created: function()
         {
-            this.fetchCourseData();
+            this.fetchCourseData();    
         },
         methods: {
             fetchCourseData: function()
@@ -44,8 +50,27 @@
                 let user = JSON.parse(localStorage.getItem('user'));
                 UserService.getCourses(user).then((response) => {
                     this.courses = response.data;
+                    this.originalCourses = this.courses;
                 }, (response) => {
                 });
+            },
+            searchCourses: function()
+            {
+                if(this.courseSearch == '')
+                {
+                    this.courses = this.originalCourses;
+                    return;
+                }
+                var foundCourses = [];
+                for(var i = 0; i < this.originalCourses.length; i++)
+                {
+                    var courseName = this.originalCourses[i]['name'].toLowerCase();
+                    if(courseName.indexOf(this.courseSearch.toLowerCase()) >= 0)
+                    {
+                        foundCourses.push(this.originalCourses[i]);
+                    }
+                }
+                this.courses = foundCourses;
             },
         }
       
